@@ -24,9 +24,9 @@ import secondcompontent from './components/secondcompontent'
 export default {
   data () {
     return {
-      isActive: '1',
+      isActive: '1', // 对应选中的id
       defUrl: '/toutiao/index',
-      key: '', // 此处放自己的key值
+      key: '263b3fec887cead4f4e9e92069cf0a6c', // 此处放自己的key
       defaultType: 'top',
       titles: [{
         id: '1',
@@ -89,17 +89,20 @@ export default {
   },
   methods: {
     loadtype (text, selectId) {
-      this.isActive = selectId
       console.log(text)
-      // this.$http.get(this.defUrl, {// 获取全部数据
-      //   params: {
-      //     type: text,
-      //     key: this.key
-      //   }
-      // }).then(function (response) {
-      //   this.items = response.data.result.data
-      //   // console.log(response.data.result.data)
-      // })
+      if (selectId === this.isActive) {
+        return false
+      }
+      this.$http.get(this.defUrl, {// 获取全部数据
+        params: {
+          type: text,
+          key: this.key
+        }
+      }).then(function (response) {
+        this.items = response.data.result.data
+        // console.log(response.data.result.data)
+      })
+      this.isActive = selectId
     }
   }
 }
