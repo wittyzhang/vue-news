@@ -1,9 +1,11 @@
-自己做的一个新闻列表
+预览
+------
+1. npm install
+2. npm run dev
+3. npm run bulid (上线打包)
 
-注：请求的数据需要提供自己的key
-#第一步
-npm install
-#第二步
-npm run dev  
-#上线打包
-npm run build
+
+说明
+------
+1. 数据使用聚合新闻头条数据
+2. 请求数据的key值因人而异
